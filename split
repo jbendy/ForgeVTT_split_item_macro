@@ -6,7 +6,7 @@
 // logic to get item name from chat input
 itemName = scope.itemName ? scope.itemName : itemName.name;
 
-console.log("Executed split item stack");
+console.log("Executed split item stack macro!");
 
 // Ensure exactly one token is selected
 if (canvas.tokens.controlled.length === 0) {
