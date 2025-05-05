@@ -1,0 +1,55 @@
+// command to run macro: /macro split itemName=name of item here
+// command to run macro is cAsE sEnSiTiVe, including name of item!!
+// spaces are allowed in the item name
+// if you have multiple stacks of the same item, the first stack will be used.
+
+// logic to get item name from chat input
+itemName = scope.itemName ? scope.itemName : itemName.name;
+
+console.log("Executed split item stack");
+
+// Ensure exactly one token is selected
+if (canvas.tokens.controlled.length === 0) {
+  ui.notifications.warn("Please select your token.");
+  return;
+}
+else if (canvas.tokens.controlled.length > 1) {
+  ui.notifications.warn("Select only ONE token!");
+  return;
+}
+
+// assign item to variable & set new name
+const item = actor.items.getName(itemName);
+const newItemName = itemName + ' (Copy)';
+const newItemQuantity = Math.floor(item.system.quantity / 2);
+
+// warn if no item found by name
+if (!item) {
+  ui.notifications.warn("No item was found with the name \"" + itemName + "\"");
+  return;
+}
+
+// warn if item quantity is < 2
+if (item.system.quantity < 2) {
+  ui.notifications.warn("You have fewer than 2 " + itemName + ". A minimum quantity of 2 is required to split a stack.");
+  return;
+}
+
+// log item object, item name, new item name, original stack quantity, and new stack quantity
+console.log('item object: ', item);
+console.log('User selected the item: ', itemName, '\nNew item will be named: ', newItemName);
+console.log("Original item's quantity: " + item.system.quantity);
+console.log("New item quantity will be " + newItemQuantity);
+
+// clone the existing item (creates the new item & assigns it to the newItem variable)
+newItem = await item.clone({ name: newItemName, "system.quantity": newItemQuantity}, {save: true});
+
+// if the console doesn't log this message, an error occurred before here
+console.log("New item successfully created.");
+
+// reduce original item's quantity to match quantity of new item
+await item.update({"system.quantity": item.system.quantity - newItem.system.quantity});
+
+// log new item object
+console.log('new item object: ', newItem);
+console.log("Finished split item macro!");
