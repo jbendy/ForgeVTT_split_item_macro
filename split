@@ -1,4 +1,4 @@
-// command to run macro: /macro split itemName=name of item here
+// command to run macro: /macro <name of macro> itemName=<name of item to split>
 // command to run macro is cAsE sEnSiTiVe, including name of item!!
 // spaces are allowed in the item name
 // if you have multiple stacks of the same item, the first stack will be used.
