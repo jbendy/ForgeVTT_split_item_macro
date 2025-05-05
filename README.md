@@ -10,7 +10,7 @@ Anyway, **here are instructions on setting up this macro:**
 1. Create a new entry on your hotbar by clicking an empty/unused entry
 2. Change the name of the entry. This name is how you will call the macro, so use something easy to type. I have called mine "split"
 3. Change the **Type** dropdown from **Chat** to **Macro**
-4. Paste the code at the bottom of this post into the **Command** section
+4. Paste the code from the "split" file into the **Command** section
 5. Click **Save Macro**
 
 **How to use the macro:**
@@ -20,7 +20,7 @@ Anyway, **here are instructions on setting up this macro:**
 4. Notice how I used a capital "C" and "B" in my item name? This macro is cAsE sEnSiTiVe. You could easily modify it to not be, but I prefer it this way so I don't accidentally split a different stack that happens to have a similar name. Similarly, "itemName" requires a capital "N"!
 5. Press Enter on your keyboard
 
-Now once you go into your inventory, you'll see the original stack and a copy with the name slightly modified. For me, the new stack is called "Crossbow Bolts (Copy)" (see figure 3). You could modify the macro to name the new stack the exact same thing; Forge doesn't care if you have multiple item stacks with the same name.
+Now once you go into your inventory, you'll see the original stack and a copy with the name slightly modified. For me, the new stack is called "Crossbow Bolts (Copy)". You could modify the macro to name the new stack the exact same thing; Forge doesn't care if you have multiple item stacks with the same name.
 
 **Some notes on usage:**
 - This macro copies every property of the stack; the picture, description, any tags, the system the item was imported from, etc. Everything.
